@@ -33,7 +33,7 @@ public class WebSecurity {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/swagger-ui/**", "/v2/api-docs", "/swagger-resources/**", "/webjars/**").permitAll()
+                .antMatchers("/swagger-ui.html", "/swagger-ui/**", "/v2/api-docs", "/swagger-resources/**","/webjars/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/SoftwareSA/**").hasRole("USER")
                 .anyRequest().hasRole("ADMIN")
                 .and()
