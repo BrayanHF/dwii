@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import unicordoba.dwii.model.Aplicacion;
 import unicordoba.dwii.model.Servidor;
@@ -22,6 +23,7 @@ import unicordoba.dwii.repository.ServidorRepo;
 @Controller
 @RequestMapping("/SoftwareSA")
 @ResponseBody
+@Api(tags = { "Controlador SoftwareSA"}, description = "Controlador para dar solución a la actividad de DWII")
 public class Controlador {
 
     @Autowired

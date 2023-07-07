@@ -22,6 +22,7 @@ public class Swagger {
                 .apis(RequestHandlerSelectors.basePackage("unicordoba.dwii.controller"))
                 .paths(PathSelectors.any())
                 .build()
+                .useDefaultResponseMessages(false)
                 .apiInfo(getApiInfo());
     }
 
