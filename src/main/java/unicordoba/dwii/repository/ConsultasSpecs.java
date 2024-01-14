@@ -7,11 +7,11 @@ import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.stereotype.Service;
-import unicordoba.dwii.model.Aplicacion;
-import unicordoba.dwii.model.Servidor;
+import org.springframework.stereotype.Repository;
+import unicordoba.dwii.repository.model.Aplicacion;
+import unicordoba.dwii.repository.model.Servidor;
 
-@Service
+@Repository
 public class ConsultasSpecs {
 
     public Specification<Servidor> masUnaAplicacion() {

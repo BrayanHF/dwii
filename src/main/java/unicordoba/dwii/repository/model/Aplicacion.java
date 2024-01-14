@@ -1,14 +1,12 @@
-package unicordoba.dwii.model;
+package unicordoba.dwii.repository.model;
 
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 import lombok.AllArgsConstructor;
@@ -21,21 +19,17 @@ import lombok.Getter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Servidor {
+public class Aplicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String ip;
     private String nombre;
-    private String memoria;
-    private String disco;
-    private String procesador;
-    private String ubicacion;
-    private String sistema;
+    private String version;
 
-    @OneToMany(mappedBy = "servidor", fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToOne
+    @JoinColumn(name = "servidor", nullable = false)
     @JsonProperty(access = Access.WRITE_ONLY)
-    private List<Aplicacion> aplicaciones;
+    private Servidor servidor;
 
 }
