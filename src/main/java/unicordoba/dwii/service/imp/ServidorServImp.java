@@ -2,10 +2,9 @@ package unicordoba.dwii.service.imp;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-
 import unicordoba.dwii.repository.ConsultasSpecs;
 import unicordoba.dwii.repository.ServidorRepo;
 import unicordoba.dwii.repository.model.Servidor;
@@ -26,7 +25,7 @@ public class ServidorServImp implements ServidorServ {
     }
 
     @Override
-    public Boolean agregar_actualizar(Servidor server) {
+    public Boolean agregar_actualizar(@NonNull Servidor server) {
         try {
             servidor.save(server);
             return true;

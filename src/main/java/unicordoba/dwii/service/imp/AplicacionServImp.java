@@ -3,8 +3,8 @@ package unicordoba.dwii.service.imp;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
-
 import unicordoba.dwii.repository.AplicacionRepo;
 import unicordoba.dwii.repository.ConsultasSpecs;
 import unicordoba.dwii.repository.model.Aplicacion;
@@ -25,7 +25,7 @@ public class AplicacionServImp implements AplicacionServ {
     }
 
     @Override
-    public Boolean agregar_actualizar(Aplicacion aplic) {
+    public Boolean agregar_actualizar(@NonNull Aplicacion aplic) {
         try {
             aplicacion.save(aplic);
             return true;

@@ -3,6 +3,7 @@ package unicordoba.dwii.controller;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,13 +40,13 @@ public class Controlador {
 
     @ApiOperation("Agregar un servidor")
     @PostMapping("/servidor-agregar")
-    public Map<String, Boolean> servidor_agregar(@RequestBody Servidor server) {
+    public Map<String, Boolean> servidor_agregar(@RequestBody @NonNull Servidor server) {
         return Map.of("Servidor agregado", servidorServ.agregar_actualizar(server));
     }
 
     @ApiOperation("Actualizar un servirdor")
     @PutMapping("/servidor-actualizar")
-    public Map<String, Boolean> servidor_actualizar(@RequestBody Servidor server) {
+    public Map<String, Boolean> servidor_actualizar(@RequestBody @NonNull Servidor server) {
         return Map.of("Servidor actualizado", servidorServ.agregar_actualizar(server));
     }
 
@@ -63,13 +64,13 @@ public class Controlador {
 
     @ApiOperation("Agregar una aplicación")
     @PostMapping("/aplicacion-agregar")
-    public Map<String, Boolean> aplicacion_agregar(@RequestBody Aplicacion aplic) {
+    public Map<String, Boolean> aplicacion_agregar(@RequestBody @NonNull Aplicacion aplic) {
         return Map.of("Aplicacion agregada", aplicacionServ.agregar_actualizar(aplic));
     }
 
     @ApiOperation("Actualizar una aplicación")
     @PutMapping("/aplicacion-actualizar")
-    public Map<String, Boolean> aplicacion_actualizar(@RequestBody Aplicacion aplic) {
+    public Map<String, Boolean> aplicacion_actualizar(@RequestBody @NonNull Aplicacion aplic) {
         return Map.of("Aplicacion actualizada", aplicacionServ.agregar_actualizar(aplic));
     }
 
