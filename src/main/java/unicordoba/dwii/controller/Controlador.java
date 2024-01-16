@@ -18,8 +18,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import unicordoba.dwii.repository.model.Aplicacion;
 import unicordoba.dwii.repository.model.Servidor;
+import unicordoba.dwii.repository.model.Usuario;
 import unicordoba.dwii.service.AplicacionServ;
 import unicordoba.dwii.service.ServidorServ;
+import unicordoba.dwii.service.UsuarioServ;
 
 @Controller
 @RequestMapping("/SoftwareSA")
@@ -32,6 +34,9 @@ public class Controlador {
 
     @Autowired
     private AplicacionServ aplicacionServ;
+
+    @Autowired
+    private UsuarioServ usuarioServ;
 
     @ApiOperation("Obtener todos los servidores con paginación")
     @GetMapping("/servidores")
@@ -104,6 +109,12 @@ public class Controlador {
     @GetMapping("/aplicacion-nombre/{nombre}")
     public Map<String, Object> aplicacionPorNombre(@PathVariable String nombre) {
         return aplicacionServ.aplicacionPorNombre(nombre);
+    }
+
+    @ApiOperation("Agregar nuevo usuario")
+    @PostMapping("/usuario-agregar")
+    public Map<String, Boolean> usuario_agregar(@RequestBody @NonNull Usuario user){
+        return Map.of("Usuario agregado", usuarioServ.agregar(user));
     }
 
 }
