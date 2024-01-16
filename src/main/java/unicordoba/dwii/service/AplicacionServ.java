@@ -2,9 +2,7 @@ package unicordoba.dwii.service;
 
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.lang.NonNull;
-
 import unicordoba.dwii.repository.model.Aplicacion;
 
 public interface AplicacionServ {

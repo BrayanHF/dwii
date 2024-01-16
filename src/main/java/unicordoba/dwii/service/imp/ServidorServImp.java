@@ -3,6 +3,9 @@ package unicordoba.dwii.service.imp;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 import unicordoba.dwii.repository.ConsultasSpecs;
@@ -22,6 +25,17 @@ public class ServidorServImp implements ServidorServ {
     @Override
     public List<Servidor> servidores() {
         return (List<Servidor>) servidor.findAll();
+    }
+
+    @Override
+    public List<Servidor> servidoresPages(int page, int size) {
+        try {
+            Pageable paging = PageRequest.of(page - 1, size);
+            Page<Servidor> pageServidores = servidor.findAll(paging);
+            return pageServidores.getContent();
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

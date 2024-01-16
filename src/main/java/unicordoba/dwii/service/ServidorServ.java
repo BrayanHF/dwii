@@ -9,6 +9,8 @@ public interface ServidorServ {
 
     List<Servidor> servidores();
 
+    List<Servidor> servidoresPages(int page, int size);
+
     Boolean agregar_actualizar(@NonNull Servidor server);
 
     Boolean eliminar(int id);

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -32,10 +33,11 @@ public class Controlador {
     @Autowired
     private AplicacionServ aplicacionServ;
 
-    @ApiOperation("Obtener todos los servidores")
+    @ApiOperation("Obtener todos los servidores con paginación")
     @GetMapping("/servidores")
-    public List<Servidor> servidores() {
-        return servidorServ.servidores();
+    public List<Servidor> servidores(@RequestParam(name = "page", defaultValue = "1") int page,
+            @RequestParam(name = "size", defaultValue = "1") int size) {
+        return servidorServ.servidoresPages(page, size);
     }
 
     @ApiOperation("Agregar un servidor")
